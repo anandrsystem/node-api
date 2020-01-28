@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const expressValidator = require('express-validator')
+// const expressValidator = require('express-validator')
 
 module.exports = function () {
   let server = express(),
@@ -17,7 +17,7 @@ module.exports = function () {
 
     // add middleware to parse the json
     server.use(bodyParser.json());
-    server.use(expressValidator())
+    // server.use(expressValidator())
     server.use(bodyParser.urlencoded({
       extended: false
     }));
@@ -27,7 +27,8 @@ module.exports = function () {
       db.database,
       {
         useNewUrlParser: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        useUnifiedTopology: true
       }
     );
 
