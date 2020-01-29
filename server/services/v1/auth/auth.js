@@ -14,7 +14,7 @@ const register = async (req, res, next) => {
   }
 
   let { name, email, password } = req.body;
-  console.log(req.body);
+
   let isEmailExists = await userModel.find({ "email": email });
 
   if (isEmailExists) {
